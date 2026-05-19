@@ -24,6 +24,7 @@ export default function MarketPage() {
 	const [materials, setMaterials] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [showPopup, setShowPopup] = useState(false);
+	const [error, setError] = useState(null);
 
 	const { writeContract, data: hash, isPending } = useWriteContract();
 	const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({
