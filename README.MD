@@ -1,28 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EduLedger : Web3-powered, student-owned digital storage and marketplace platform
+
+EduLedger is a Web3 powered educational platform that allows students to mint their academic materials  such as notes, lab reports, and study guides as NFTs on the Celo blockchain.
+Other students can then access and download these materials by paying a small token fee, rewarding the original creator.
+It's more than a repository  it's a knowledge economy where students earn from the value they create.
+
+##  Problem Statement
+
+In most academic environments, valuable student-created materials -notes, lab reports, research summaries, and solved assignments are shared informally or lost entirely after semesters.
+There's no structured platform to preserve and reward quality content created by students.
+Students who put effort into making helpful resources get no recognition or incentive.
+Valuable academic work often ends up buried in chat groups, drives, or old devices, inaccessible to others who could benefit from it.
+Access to quality study materials remains unequal, especially across different departments or institutions.
+These challenges highlight a gap in academic knowledge sharing and ownership  a problem EduLedger aims to fix.
+
+##  Solution
+
+EduLedger transforms academic materials into digital assets (NFTs) that carry both value and ownership.
+Students can upload and mint their resources on the Celo blockchain.
+These NFTs serve as proof of authorship, ensuring creators maintain ownership and traceability.
+Other students can download materials for a small token fee, rewarding the content creator.
+This creates a self sustaining ecosystem where educational content is decentralized, accessible, and rewarding.
+By leveraging Web3 principles, EduLedger brings transparency, fairness, and incentives into academic content sharing.
+
+## Features
+
+-   **NFT Minting:** Students can upload and mint their notes, lab reports, and study materials as NFTs on the Celo blockchain, gaining proof of ownership and authorship.
+-   **Earn Rewards:** Contributors earn tokens whenever their materials are downloaded, creating an incentive-driven academic ecosystem.
+-   **Organized Repository:** Materials are categorized by faculty and department, making it easy to find relevant resources.
+-   **Transparent Transactions:** All uploads, downloads, and payments are recorded on-chain for full transparency.
+-   **Wallet Integration:** Users connect via MetaMask to manage assets, earnings, and authentication securely.
+-   **Collaborative Learning:** Encourages cross-department sharing and builds a community-driven network of knowledge exchange.
+
+## Technologies Used
+
+-   **Next.js:** Serves as the full-stack framework for both frontend and backend, ensuring fast rendering, smooth routing, and efficient user interaction.
+-   **Celo Blockchain:** Powers NFT minting, ownership tracking, and reward transactions with low fees and a sustainable design.
+-   **Solidity:** Used to write and deploy smart contracts that manage the minting, payments, and content ownership system.
+-   **MongoDB:** Handles user data, material metadata, and transaction histories off-chain for better performance and scalability.
+-   **Celo Wallet / MetaMask:** Provides secure wallet authentication and seamless on-chain interactions for users.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm install
+-   Node.js (v18 or later)
+-   npm, yarn, pnpm, or bun
 
-npm run dev
-```
+### Install the dependencies
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    ```bash
+    cd EduLedger
+    npm install
+    ```
 
-## Learn More
+### Running the Application
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1.  Run the development server:
+    ```bash
+    npm run dev
+    ```
+2.  Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
