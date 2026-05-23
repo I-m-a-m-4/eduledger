@@ -50,7 +50,7 @@ export default function HowItWorks() {
 					How It Works in 3 Simple Steps
 				</h2>
 				<Link
-					href="#"
+					href="/"
 					className="flex items-center gap-2 text-sm bg-white text-gray-900 font-semibold py-3 px-6 rounded-full hover:bg-gray-100 transition-all duration-300 shadow-sm"
 				>
 					Create My Student Wallet →

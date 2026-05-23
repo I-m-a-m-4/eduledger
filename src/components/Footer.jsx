@@ -38,7 +38,7 @@ export default function Footer() {
 					<p className="text-xs text-gray-500">
 						By subscribing you agree to our{" "}
 						<Link
-							href="#"
+							href="/policy"
 							className="text-gray-300 hover:text-white underline underline-offset-2"
 						>
 							Privacy Policy
@@ -53,16 +53,16 @@ export default function Footer() {
 			<div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-sm">
 				{/* Footer Links */}
 				<div className="flex flex-wrap gap-6 text-gray-400">
-					<Link href="#" className="hover:text-white transition">
+					<Link href="/#howitworks" className="hover:text-white transition">
 						How It Works
 					</Link>
-					<Link href="#" className="hover:text-white transition">
+					<Link href="/marketplace" className="hover:text-white transition">
 						Marketplace
 					</Link>
-					<Link href="#" className="hover:text-white transition">
+					<Link href="/contact" className="hover:text-white transition">
 						Support
 					</Link>
-					<Link href="#" className="hover:text-white transition">
+					<Link href="/docs" className="hover:text-white transition">
 						Docs
 					</Link>
 				</div>

@@ -115,7 +115,7 @@ export default function MarketPage() {
 								key={i}
 								className="cursor-pointer hover:text-blue-600 transition-all"
 							>
-								{category}
+								<a href="/marketplace">{category}</a>
 							</li>
 						))}
 					</ul>
@@ -137,9 +137,11 @@ export default function MarketPage() {
 							<p className="text-gray-700 text-sm mb-4">
 								Own your knowledge. Earn from your notes.
 							</p>
-							<button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-md text-sm font-semibold transition-all">
-								Become a Creator
-							</button>
+							<a href="/dashboard/upload">
+								<button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-md text-sm font-semibold transition-all">
+									Become a Creator
+								</button>
+							</a>
 						</div>
 
 						<div className="w-40 h-40 mt-6 md:mt-0 flex items-center justify-center">

@@ -91,9 +91,11 @@ export default function TopSharedMaterials() {
 						Discover what’s trending in the EduLedger community this week.
 					</p>
 				</div>
-				<button className="mt-6 md:mt-0 text-sm font-medium text-blue-600 hover:text-blue-800 transition-all">
-					View All Documents →
-				</button>
+				<a href="/marketplace">
+					<button className="mt-6 md:mt-0 text-sm font-medium text-blue-600 hover:text-blue-800 transition-all">
+						View All Documents →
+					</button>
+				</a>
 			</motion.div>
 
 			{/* Grid Layout */}
@@ -175,9 +177,11 @@ export default function TopSharedMaterials() {
 									</div>
 								</div>
 							</div>
-							<button className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-200">
-								Get This!
-							</button>
+							<a href={`/marketplace/${i}`}>
+								<button className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-200">
+									Get This!
+								</button>
+							</a>
 						</motion.div>
 					))}
 				</motion.div>

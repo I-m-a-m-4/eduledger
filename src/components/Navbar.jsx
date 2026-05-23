@@ -69,7 +69,7 @@ export default function Navbar() {
 						Marketplace
 					</Link>
 					<Link
-						href="#"
+						href="/docs"
 						className="hover:text-gray-900 transition-all duration-200"
 					>
 						Docs
@@ -140,7 +140,7 @@ export default function Navbar() {
 					<div className="absolute top-20 left-0 w-full bg-white border-t border-gray-200 shadow-sm flex flex-col items-center space-y-4 py-6 text-gray-700 md:hidden z-50">
 						<Link href="/#howitwork">How It Works</Link>
 						<Link href="/marketplace">Marketplace</Link>
-						<Link href="#">
+						<Link href="/docs">
 							Docs
 						</Link>
 

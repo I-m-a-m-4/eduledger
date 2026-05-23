@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useMemo } from "react";
 import { FaHeart } from "react-icons/fa";
 import { FiFilter } from "react-icons/fi";
+import Link from "next/link";
 
 export default function DiscoverMaterials() {
 	const [loading, setLoading] = useState(true);
@@ -116,44 +117,49 @@ export default function DiscoverMaterials() {
 								variants={fadeUp}
 								className="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm hover:shadow-lg transition-all duration-300"
 							>
-                                {/* Thumbnail */}
-                                <div className="bg-gray-100 rounded-xl h-48 mb-4 overflow-hidden">
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        className="h-full w-full object-cover"
-                                    />
-                                </div>
-
-								{/* CTA Button */}
-								<button className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2 px-5 rounded-full mb-4 transition-all">
-									Get This!
-								</button>
-
-								{/* Text Info */}
-								<h3 className="text-sm font-semibold text-gray-800 mb-1 truncate">
-									{item.title}
-								</h3>
-								<p className="text-xs text-gray-500 mb-3">by {item.author}</p>
-
-								{/* Meta Info */}
-								<div className="flex justify-between items-center text-xs text-gray-500 mb-1">
-									<div className="flex items-center gap-1">
-										<FaHeart className="text-pink-500" />
-										<span>{item.likes} Likes</span>
+								<Link
+									href={`/marketplace/${i}`}
+									key={i}
+								>
+									{/* Thumbnail */}
+									<div className="bg-gray-100 rounded-xl h-48 mb-4 overflow-hidden">
+										<img
+											src={item.image}
+											alt={item.title}
+											className="h-full w-full object-cover"
+										/>
 									</div>
-									<span>Current Bid</span>
-								</div>
 
-								{/* Bid + Time */}
-								<div className="flex justify-between items-center mt-1">
-									<span className="text-xs text-gray-500 flex items-center gap-1">
-										⏱ {item.time}
-									</span>
-									<span className="text-sm font-semibold text-gray-800">
-										{item.bid}
-									</span>
-								</div>
+									{/* CTA Button */}
+									<button className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2 px-5 rounded-full mb-4 transition-all">
+										Get This!
+									</button>
+
+									{/* Text Info */}
+									<h3 className="text-sm font-semibold text-gray-800 mb-1 truncate">
+										{item.title}
+									</h3>
+									<p className="text-xs text-gray-500 mb-3">by {item.author}</p>
+
+									{/* Meta Info */}
+									<div className="flex justify-between items-center text-xs text-gray-500 mb-1">
+										<div className="flex items-center gap-1">
+											<FaHeart className="text-pink-500" />
+											<span>{item.likes} Likes</span>
+										</div>
+										<span>Current Bid</span>
+									</div>
+
+									{/* Bid + Time */}
+									<div className="flex justify-between items-center mt-1">
+										<span className="text-xs text-gray-500 flex items-center gap-1">
+											⏱ {item.time}
+										</span>
+										<span className="text-sm font-semibold text-gray-800">
+											{item.bid}
+										</span>
+									</div>
+								</Link>
 							</motion.div>
 					  ))}
 			</motion.div>
