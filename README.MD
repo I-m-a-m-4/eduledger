@@ -67,8 +67,11 @@ By leveraging Web3 principles, EduLedger brings transparency, fairness, and ince
 
 The `EduLedger` NFT smart contract is deployed and verified on the **Celo Sepolia testnet** at the following address:
 
-**`0x0c03A2874f148E22650BCb253A4304b7a7DAf590`**
+**`0x84Ec2b6C277cff21F6D054e453F4d63790030eE5`**
 
 👉 Take a look at `EduLedger.sol` in the `contracts` directory.
 
-You can view the contract on the [Celo Sepolia Block Explorer](https://celo-sepolia.blockscout.com/address/0x0c03A2874f148E22650BCb253A4304b7a7DAf590).
+You can view the contract on the [Celo Sepolia Block Explorer](https://celo-sepolia.blockscout.com/address/0x84Ec2b6C277cff21F6D054e453F4d63790030eE5).
+
+
+
