@@ -2,6 +2,71 @@
 
 This roadmap outlines the development plan for EduLedger, a Web3-powered educational platform that enables students to mint academic materials as NFTs on the Celo blockchain. The document is organized into phases with clear milestones, and priorities.
 
+**Current Status**: MVP Core Features (Phase 1 - In Progress)  
+
+---
+
+## 🎯 Project Vision
+
+Transform academic content sharing into a decentralized knowledge economy where students are rewarded for creating valuable educational materials through blockchain-based ownership and tokenized transactions.
+
+---
+
+## 📊 Current Implementation Status
+
+### ✅ Completed Features
+
+- **Core Infrastructure**
+  - Next.js 16 application setup with App Router
+  - Wallet integration (Wagmi, RainbowKit, Web3Modal)
+  - MongoDB database setup and connection
+  - IPFS/Pinata integration for file storage
+  - JWT-based authentication system
+
+- **Smart Contract**
+  - ERC721 NFT contract deployed on Celo Sepolia testnet
+  - Basic minting functionality
+  - Token ownership tracking
+
+- **Frontend Pages**
+  - Landing page with hero section
+  - Dashboard with welcome banner
+  - Market/browse materials page
+  - Upload materials page (UI complete)
+  - My Materials page (displays owned NFTs)
+
+- **Backend APIs**
+  - Material creation API
+  - Material retrieval API
+  - Market materials API
+  - User profile API
+  - Upload handling with Pinata
+
+### 🚧 Partially Implemented
+
+- **Marketplace Functionality**
+  - NFT browsing works
+  - Download/payment system not fully implemented
+  - Material filtering and search basic
+
+- **Dashboard Features**
+  - UI components created (TrendingMaterials, TopCreators, etc.)
+  - Data fetching and display needs enhancement
+
+### ❌ Missing Features
+
+- Payment system for material downloads
+- Earnings tracking and withdrawal
+- Leaderboard system
+- Favorites/bookmarking
+- Transaction history
+- Settings page
+- Advanced search and filtering
+- Review and rating system
+- Smart contract enhancements (pricing, royalties)
+- Email notifications
+- Analytics and reporting
+
 ---
 
 ## 🗺️ Development Phases
@@ -502,3 +567,18 @@ This roadmap outlines the development plan for EduLedger, a Web3-powered educati
    - Mitigation: Documentation, knowledge sharing
 2. **Third-Party Service Failures**
    - Mitigation: Backup services, monitoring, redundancy
+
+---
+
+## 🎯 Immediate Next Steps (Priority Order)
+
+1. **Implement Payment & Download System**
+   - This is critical for the core value proposition
+2. **Complete Upload Flow**
+   - Essential for content creation
+3. **Build Earnings Dashboard**
+   - Important for creator incentives
+4. **Enhance Marketplace**
+   - Improves discoverability
+
+
