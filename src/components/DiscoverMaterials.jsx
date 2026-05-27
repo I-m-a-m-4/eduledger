@@ -8,31 +8,31 @@ import Link from "next/link";
 
 export default function DiscoverMaterials() {
 	const [loading, setLoading] = useState(true);
+	const [materials, setMaterials] = useState([]);
+	const [error, setError] = useState(null);
 
-    const imageOptions = [
-        "/images/demo1.png",
-        "/images/demo2.jpg",
-    ];
+	useEffect(() => {
+		const fetchDemoMaterials = async () => {
+			try {
+				const response = await fetch('/api/materials?demo=true');
+				if (!response.ok) {
+					throw new Error('Failed to fetch materials');
+				}
+				const data = await response.json();
+				setMaterials(data.items || []);
+			} catch (err) {
+				console.error('Error fetching demo materials:', err);
+				setError(err.message);
+			} finally {
+				setLoading(false);
+			}
+		};
 
-    const materials = useMemo(() =>
-        Array.from({ length: 9 }).map(() => ({
-            title: "CHM 112 – Lab Report Template (UNN)",
-            author: "Chijioke M.",
-            likes: "21.5K",
-            bid: "0.25 CELO",
-            time: "01:09:40",
-            image: imageOptions[Math.floor(Math.random() * imageOptions.length)],
-        })),
-        []
-    );
+		fetchDemoMaterials();
+	}, []);
 
 	const categories = ["All", "Social Sciences", "Engineering", "Pharmacy"];
 	const [activeCategory, setActiveCategory] = useState("All");
-
-	useEffect(() => {
-		const timeout = setTimeout(() => setLoading(false), 1200);
-		return () => clearTimeout(timeout);
-	}, []);
 
 	const fadeUp = {
 		hidden: { opacity: 0, y: 40 },

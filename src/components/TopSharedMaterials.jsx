@@ -3,63 +3,49 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaCrown } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 export default function TopSharedMaterials() {
-	const sharedMaterials = [
-		{
-			title: "CHM 112 – Lab Report (Year 1)",
-			price: "0.25 CELO",
-			authorImg: "/author1.png",
-		},
-		{
-			title: "GNS 201 – Use of English (Year 2)",
-			price: "0.25 CELO",
-			authorImg: "/author2.png",
-		},
-		{
-			title: "CSC 301 – Data Structures (Year 3)",
-			price: "0.26 CELO",
-			authorImg: "/author3.png",
-		},
-	];
+	const [sharedMaterials, setSharedMaterials] = useState([]);
+	const [featuredMaterial, setFeaturedMaterial] = useState(null);
+	const [topAuthors, setTopAuthors] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
 
-	const topAuthors = [
-		{
-			rank: 1,
-			name: "CryptoFunks",
-			price: "0.25 CELO",
-			change: "+26.52%",
-			color: "text-green-500",
-		},
-		{
-			rank: 2,
-			name: "Cryptix",
-			price: "0.25 CELO",
-			change: "+10.52%",
-			color: "text-red-500",
-		},
-		{
-			rank: 3,
-			name: "Frenesware",
-			price: "0.25 CELO",
-			change: "+5.52%",
-			color: "text-green-500",
-		},
-		{
-			rank: 4,
-			name: "PunkArt",
-			price: "50,008 CELO",
-			change: "+1.52%",
-			color: "text-green-500",
-		},
-		{
-			rank: 5,
-			name: "Art Crypto",
-			price: "4,524 CELO",
-			change: "+2.52%",
-			color: "text-red-500",
-		},
-	];
+	useEffect(() => {
+		const fetchTopSharedMaterials = async () => {
+			try {
+				const response = await fetch('/api/materials?top-shared=true');
+				if (!response.ok) {
+					throw new Error('Failed to fetch top shared materials');
+				}
+				const data = await response.json();
+				setSharedMaterials(data.items || []);
+				setFeaturedMaterial(data.featured || null);
+			} catch (err) {
+				console.error('Error fetching top shared materials:', err);
+				setError(err.message);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		const fetchTopAuthors = async () => {
+			try {
+				const response = await fetch('/api/top-authors');
+				if (!response.ok) {
+					throw new Error('Failed to fetch top authors');
+				}
+				const data = await response.json();
+				setTopAuthors(data.authors || []);
+			} catch (err) {
+				console.error('Error fetching top authors:', err);
+			}
+		};
+
+		fetchTopSharedMaterials();
+		fetchTopAuthors();
+	}, []);
 
 	const fadeUp = {
 		hidden: { opacity: 0, y: 40 },
@@ -109,19 +95,21 @@ export default function TopSharedMaterials() {
 					className="relative h-[340px] rounded-2xl bg-gradient-to-br from-white to-gray-50 border border-gray-100 shadow-sm hover:shadow-lg overflow-hidden transition-all duration-300"
 				>
                     <Image
-                        src="/images/demo1.png"
-                        alt="ECN 101 Preview"
+                        src={featuredMaterial?.image || "/images/demo1.png"}
+                        alt={`${featuredMaterial?.title || "Featured Material"} Preview`}
                         fill
                         className="object-cover"
                     />
 					<div className="absolute bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-gray-200 p-5 flex justify-between items-center">
 						<div>
 							<h3 className="text-sm font-semibold text-gray-800">
-								ECN 101 – Principles of Microeconomics (Year 1)
+								{featuredMaterial?.title}
 							</h3>
 							<p className="text-xs text-gray-500">
 								by{" "}
-								<span className="font-medium text-gray-700">Chijioke M.</span>
+								<span className="font-medium text-gray-700">
+									{featuredMaterial?.author}
+								</span>
 							</p>
 						</div>
 						<div className="flex items-center gap-1">
@@ -133,7 +121,7 @@ export default function TopSharedMaterials() {
 								className="rounded-full"
 							/>
 							<span className="text-xs font-semibold text-gray-700">
-								0.25 CELO
+								{featuredMaterial?.price}
 							</span>
 						</div>
 					</div>
@@ -147,43 +135,59 @@ export default function TopSharedMaterials() {
 					variants={fadeUp}
 					className="flex flex-col space-y-5"
 				>
-					{sharedMaterials.map((material, i) => (
-						<motion.div
-							key={i}
-							whileHover={{
-								scale: 1.02,
-								boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
-							}}
-							className="flex items-center justify-between bg-white border border-gray-100 rounded-2xl p-4 shadow-sm transition-all duration-200"
-						>
-							<div className="flex items-center gap-3">
-								<div className="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-lg">
-									📘
-								</div>
-								<div>
-									<h3 className="text-sm font-semibold text-gray-800 truncate max-w-[180px]">
-										{material.title}
-									</h3>
-									<div className="flex items-center gap-2 mt-1">
-										<Image
-											src="/celo.png"
-											alt="CELO"
-											width={14}
-											height={14}
-										/>
-										<span className="text-xs font-medium text-gray-600">
-											{material.price}
-										</span>
+					{loading ? (
+						// Loading skeleton
+						Array.from({ length: 3 }).map((_, i) => (
+							<div key={i} className="flex items-center justify-between bg-white border border-gray-100 rounded-2xl p-4 shadow-sm animate-pulse">
+								<div className="flex items-center gap-3">
+									<div className="w-14 h-14 bg-gray-200 rounded-lg"></div>
+									<div>
+										<div className="h-4 bg-gray-200 rounded w-32 mb-2"></div>
+										<div className="h-3 bg-gray-200 rounded w-20"></div>
 									</div>
 								</div>
+								<div className="h-8 bg-gray-200 rounded-full w-20"></div>
 							</div>
-							<a href={`/marketplace/${i}`}>
-								<button className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-200">
-									Get This!
-								</button>
-							</a>
-						</motion.div>
-					))}
+						))
+					) : (
+						sharedMaterials.slice(0, 3).map((material, i) => (
+							<motion.div
+								key={material.id || i}
+								whileHover={{
+									scale: 1.02,
+									boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+								}}
+								className="flex items-center justify-between bg-white border border-gray-100 rounded-2xl p-4 shadow-sm transition-all duration-200"
+							>
+								<div className="flex items-center gap-3">
+									<div className="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-lg">
+										📘
+									</div>
+									<div>
+										<h3 className="text-sm font-semibold text-gray-800 truncate max-w-[180px]">
+											{material.title}
+										</h3>
+										<div className="flex items-center gap-2 mt-1">
+											<Image
+												src="/celo.png"
+												alt="CELO"
+												width={14}
+												height={14}
+											/>
+											<span className="text-xs font-medium text-gray-600">
+												{material.price}
+											</span>
+										</div>
+									</div>
+								</div>
+								<a href={`/marketplace/${material.id}`}>
+									<button className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-200">
+										Get This!
+									</button>
+								</a>
+							</motion.div>
+						))
+					)}
 				</motion.div>
 
 				{/* Right — Top Authors */}
@@ -204,7 +208,7 @@ export default function TopSharedMaterials() {
 						Last <span className="text-orange-500 font-medium">7 days</span>
 					</p>
 					<div className="space-y-3">
-						{topAuthors.map((author) => (
+						{(topAuthors).map((author) => (
 							<motion.div
 								key={author.rank}
 								whileHover={{
