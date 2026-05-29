@@ -4,6 +4,8 @@ EduLedger is a Web3 powered educational platform that allows students to mint th
 Other students can then access and download these materials by paying a small token fee, rewarding the original creator.
 It's more than a repository  it's a knowledge economy where students earn from the value they create.
 
+![overview.png](overview.png)
+
 ##  Problem Statement
 
 In most academic environments, valuable student-created materials -notes, lab reports, research summaries, and solved assignments are shared informally or lost entirely after semesters.
@@ -33,7 +35,8 @@ By leveraging Web3 principles, EduLedger brings transparency, fairness, and ince
 
 ## Technologies Used
 
--   **Next.js:** Serves as the full-stack framework for both frontend and backend, ensuring fast rendering, smooth routing, and efficient user interaction.
+-   **Next.js:** Frontend framework (App Router) used for the web UI, routing, and client-side rendering.
+-   **Express.js:** Backend API server for REST endpoints, file uploads, authentication helpers, and integration with Pinata/MongoDB.
 -   **Celo Blockchain:** Powers NFT minting, ownership tracking, and reward transactions with low fees and a sustainable design.
 -   **Solidity:** Used to write and deploy smart contracts that manage the minting, payments, and content ownership system.
 -   **MongoDB:** Handles user data, material metadata, and transaction histories off-chain for better performance and scalability.
@@ -48,19 +51,34 @@ By leveraging Web3 principles, EduLedger brings transparency, fairness, and ince
 
 ### Install the dependencies
 
+1.  Install frontend dependencies:
     ```bash
-    cd EduLedger
+    cd frontend
+    npm install
+    ```
+
+2.  Install backend dependencies:
+    ```bash
+    cd backend
     npm install
     ```
 
 ### Running the Application
 
-
-1.  Run the development server:
+1.  Start the frontend:
     ```bash
+    cd frontend
     npm run dev
     ```
-2.  Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+2.  Start the backend:
+    ```bash
+    # use a new terminal
+    cd backend
+    npm run dev
+    ```
+
+3.  Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
 
 ## Smart Contract
@@ -69,9 +87,7 @@ The `EduLedger` NFT smart contract is deployed and verified on the **Celo Sepoli
 
 **`0x84Ec2b6C277cff21F6D054e453F4d63790030eE5`**
 
-👉 Take a look at `EduLedger.sol` in the `contracts` directory.
+👉 Take a look at `EduLedger.sol` in the `contracts` directory. You can view the contract on the [Celo Sepolia Block Explorer](https://celo-sepolia.blockscout.com/address/0x84Ec2b6C277cff21F6D054e453F4d63790030eE5).
 
-You can view the contract on the [Celo Sepolia Block Explorer](https://celo-sepolia.blockscout.com/address/0x84Ec2b6C277cff21F6D054e453F4d63790030eE5).
-
-
+To get free Celo tokens, primarily use dedicated Celo testnet faucets to obtain test tokens for development (e.g., [Celo Faucet](https://faucet.celo.org/celo-sepolia), [Google Cloud Faucet](https://cloud.google.com/application/web3/faucet/celo/sepolia), or [Tatum](https://tatum.io/faucets/celo)).
 
