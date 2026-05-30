@@ -6,15 +6,24 @@ import TopCreators from "./components/TopCreators";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import jwt from "jsonwebtoken";
-import { ObjectId } from "mongodb";
-import { getDb } from "@/lib/mongodb";
 import { unstable_cache } from "next/cache";
 
 const getCachedUser = unstable_cache(
-    async (id) => {
-        const db = await getDb();
-        const users = db.collection("users");
-        return users.findOne({ _id: new ObjectId(id) });
+    async (id, authToken) => {
+        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+        const response = await fetch(`${backendUrl}/api/profile/me`, {
+            headers: {
+                cookie: `auth_token=${authToken}`,
+            },
+            cache: "no-store",
+        });
+
+        if (!response.ok) {
+            return null;
+        }
+
+        const data = await response.json();
+        return data?.user ?? null;
     },
     ["user-by-id"],
     { revalidate: 60 }
@@ -38,7 +47,7 @@ export default async function DashboardPage() {
         redirect("/");
     }
 
-    const user = await getCachedUser(payload.sub);
+    const user = await getCachedUser(payload.sub, token);
     if (!user) {
         redirect("/");
     }
