@@ -5,6 +5,18 @@ const { pinata } = require("../lib/pinata.js");
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
 
+function toNodeFile(uploadedFile) {
+  if (!uploadedFile) return null;
+  const fileName = uploadedFile.originalname || uploadedFile.name || "file.bin";
+  const fileType = uploadedFile.mimetype || "application/octet-stream";
+  if (typeof File !== "undefined") {
+    return new File([uploadedFile.buffer], fileName, { type: fileType });
+  }
+  // Fallback for older Node where File is not global
+  const { File: NodeFile } = require("undici");
+  return new NodeFile([uploadedFile.buffer], fileName, { type: fileType });
+}
+
 router.post("/", upload.fields([{ name: "file" }, { name: "thumbnail" }]), async (req, res) => {
   try {
     const file = req.files?.file?.[0];
@@ -14,16 +26,22 @@ router.post("/", upload.fields([{ name: "file" }, { name: "thumbnail" }]), async
 
     const results = {};
 
-    // Upload main file - attempt to pass buffer or stream to Pinata SDK
-    const uploadedFile = await pinata.upload.public.file(file.buffer || file.stream || file.path, {
-      filename: file.originalname,
+    const uploadFileInput = toNodeFile(file);
+    if (!uploadFileInput) return res.status(400).json({ error: "Invalid file upload" });
+
+    const uploadedFile = await pinata.upload.public.file(uploadFileInput, {
+      metadata: { name: file.originalname },
     });
     const fileUrl = await pinata.gateways.public.convert(uploadedFile.cid);
     results.fileUrl = fileUrl;
 
     if (image) {
-      const fileThumb = await pinata.upload.public.file(image.buffer || image.stream || image.path, {
-        filename: image.originalname,
+      const uploadImageInput = toNodeFile(image);
+      if (!uploadImageInput) {
+        return res.status(400).json({ error: "Invalid image upload" });
+      }
+      const fileThumb = await pinata.upload.public.file(uploadImageInput, {
+        metadata: { name: image.originalname },
       });
       const imgUrl = await pinata.gateways.public.convert(fileThumb.cid);
       results.imgUrl = imgUrl;
