@@ -22,11 +22,11 @@ export default function BackendStatus() {
     }
   };
 
-  useEffect(() => {
-    check();
-    const id = setInterval(check, 30000); // recheck every 30s
-    return () => clearInterval(id);
-  }, []);
+  // useEffect(() => {
+  //   check();
+  //   const id = setInterval(check, 30000); // recheck every 30s
+  //   return () => clearInterval(id);
+  // }, []);
 
   if (healthy) return null;
 
