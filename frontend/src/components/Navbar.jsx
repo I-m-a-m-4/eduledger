@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import WalletModal from "@/components/WalletModal";
 import { useWallet } from "@/hooks/useWallet";
@@ -12,6 +12,11 @@ import { formatAddress } from "@/utils/formatAddress";
 export default function Navbar() {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [mounted, setMounted] = useState(false);
+	
+	useEffect(() => {
+		setMounted(true);
+	}, []);
 	const router = useRouter();
 
 	const {
@@ -36,8 +41,7 @@ export default function Navbar() {
 				initial={{ y: -40, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
 				transition={{ duration: 0.6, ease: "easeOut" }}
-				className="relative flex items-center justify-between w-full md:w-[90%] lg:w-[85%] max-w-6xl 
-        bg-white/80 backdrop-blur-lg border border-gray-200 rounded-full py-3 px-6 md:px-10 shadow-sm z-10"
+				className="relative flex items-center justify-between w-full md:w-[90%] lg:w-[85%] max-w-6xl bg-white/80 backdrop-blur-lg border border-gray-200 rounded-full py-3 px-6 md:px-10 shadow-sm z-10"
 			>
 				{/* Logo */}
 				<div className="flex items-center gap-3">
@@ -77,7 +81,7 @@ export default function Navbar() {
 				</div>
 
 				{/* Connect Wallet Button / Connected State */}
-				{isConnected && address ? (
+				{mounted && isConnected && address ? (
 					<div className="hidden md:flex items-center gap-3">
 						{/* Balance Display (optional) */}
 						{balance && (
@@ -90,8 +94,7 @@ export default function Navbar() {
 						<div className="relative group">
 							<button
 								onClick={() => router.push("/dashboard")}
-								className="flex items-center gap-2 bg-green-50 hover:bg-green-100 text-green-700 border border-green-300 
-                                text-sm font-semibold py-2 px-5 rounded-full transition-all duration-300"
+								className="flex items-center gap-2 bg-green-50 hover:bg-green-100 text-green-700 border border-green-300 text-sm font-semibold py-2 px-5 rounded-full transition-all duration-300"
 							>
 								<div className="w-2 h-2 bg-green-500 rounded-full"></div>
 								{formatAddress(address)}
@@ -117,11 +120,10 @@ export default function Navbar() {
 				) : (
 					<button
 						onClick={() => setIsModalOpen(true)}
-						disabled={isConnecting}
-						className="hidden md:flex items-center gap-2 bg-white hover:bg-gray-100 text-black border border-gray-300 
-						text-sm font-semibold py-2 px-5 rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+						disabled={!mounted || isConnecting}
+						className="hidden md:flex items-center gap-2 bg-white hover:bg-gray-100 text-black border border-gray-300 text-sm font-semibold py-2 px-5 rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
 					>
-						{isConnecting ? "Connecting..." : "Connect Wallet →"}
+						{(!mounted || isConnecting) ? "Connecting..." : "Connect Wallet →"}
 					</button>
 				)}
 
@@ -145,7 +147,7 @@ export default function Navbar() {
 						</Link>
 
 						{/* Mobile wallet button/state */}
-						{isConnected && address ? (
+						{mounted && isConnected && address ? (
 							<div className="flex flex-col items-center gap-3 w-full px-4">
 								<div className="flex items-center gap-2 text-sm font-semibold text-green-700">
 									<div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -181,10 +183,10 @@ export default function Navbar() {
 									setMenuOpen(false);
 									setIsModalOpen(true);
 								}}
-								disabled={isConnecting}
+								disabled={!mounted || isConnecting}
 								className="bg-gray-100 hover:bg-gray-200 text-sm font-semibold py-2 px-5 rounded-full disabled:opacity-50"
 							>
-								{isConnecting ? "Connecting..." : "Connect Wallet →"}
+								{(!mounted || isConnecting) ? "Connecting..." : "Connect Wallet →"}
 							</button>
 						)}
 					</div>

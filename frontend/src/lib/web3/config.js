@@ -23,7 +23,7 @@ export const config = createConfig({
       metadata: {
         name: 'EduLedger',
         description: 'Decentralized Educational Materials Sharing Platform',
-        url: typeof window !== 'undefined' ? window.location.origin : '',
+        url: 'https://eduledger.com',
         icons: ['https://eduledger.com/icon.png'],
       },
       showQrModal: true,
