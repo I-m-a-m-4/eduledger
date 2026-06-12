@@ -41,7 +41,7 @@ export default function DiscoverMaterials() {
 	};
 
 	return (
-		<section className="relative py-20 px-6 md:px-16 bg-gradient-to-br from-white to-blue-50 overflow-hidden">
+		<section className="relative py-20 px-6 md:px-16 bg-gradient-to-br from-white to-primary-light/30 overflow-hidden">
 			{/* Decorative Grid Background */}
 			<div
 				className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.03)_1px,transparent_1px)]
@@ -78,7 +78,7 @@ export default function DiscoverMaterials() {
 						onClick={() => setActiveCategory(cat)}
 						className={`text-sm font-medium px-5 py-2.5 rounded-full border transition-all duration-300 ${
 							activeCategory === cat
-								? "bg-blue-600 text-white border-blue-600 shadow-md"
+								? "bg-primary text-white border-primary shadow-md"
 								: "border-gray-300 text-gray-700 hover:bg-gray-100"
 						}`}
 					>
@@ -132,7 +132,7 @@ export default function DiscoverMaterials() {
 									</div>
 
 									{/* CTA Button */}
-									<button className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2 px-5 rounded-full mb-4 transition-all">
+									<button className="bg-primary hover:bg-primary-hover text-white text-xs font-semibold py-2 px-5 rounded-full mb-4 transition-all">
 										Get This!
 									</button>
 

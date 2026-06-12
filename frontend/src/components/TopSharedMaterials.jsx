@@ -56,7 +56,7 @@ export default function TopSharedMaterials() {
 	return (
 		<section className="relative py-20 px-6 md:px-20 overflow-hidden">
 			{/* 🔹 Background Layer */}
-			<div className="absolute inset-0 bg-gradient-to-tr from-yellow-50 via-transparent to-blue-50" />
+			<div className="absolute inset-0 bg-gradient-to-tr from-yellow-50 via-transparent to-primary-light/30" />
 			<div
 				className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.04)_1px,transparent_1px)]
         bg-[size:40px_40px] opacity-30 pointer-events-none"
@@ -79,7 +79,7 @@ export default function TopSharedMaterials() {
 					</p>
 				</div>
 				<a href="/marketplace">
-					<button className="mt-6 md:mt-0 text-sm font-medium text-blue-600 hover:text-blue-800 transition-all">
+					<button className="mt-6 md:mt-0 text-sm font-medium text-primary hover:text-primary-hover transition-all">
 						View All Documents →
 					</button>
 				</a>
@@ -182,7 +182,7 @@ export default function TopSharedMaterials() {
 									</div>
 								</div>
 								<a href={`/marketplace/${material.id}`}>
-									<button className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-200">
+									<button className="bg-primary hover:bg-primary-hover text-white text-xs font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-200">
 										Get This!
 									</button>
 								</a>

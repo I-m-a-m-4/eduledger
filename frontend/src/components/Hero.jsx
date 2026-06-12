@@ -34,7 +34,7 @@ export default function Hero() {
 			></div>
 
 			{/* 💫 Floating Glow Background */}
-			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-yellow-100 via-transparent to-blue-100 rounded-full blur-3xl opacity-50"></div>
+			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-yellow-100 via-transparent to-orange-100 rounded-full blur-3xl opacity-50"></div>
 
 			{/* 🎬 Animated Content */}
 			<motion.div
@@ -72,7 +72,7 @@ export default function Hero() {
 				<motion.div variants={fadeUp} className="flex gap-4 mb-12">
 					<Link
 						href="/dashboard/market"
-						className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg"
+						className="bg-primary hover:bg-primary-hover text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg"
 					>
 						Explore Documents
 					</Link>

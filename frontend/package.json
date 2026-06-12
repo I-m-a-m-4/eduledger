@@ -24,7 +24,8 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4",
+    "vercel": "^54.12.2"
   },
   "overrides": {
     "next": {
