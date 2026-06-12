@@ -13,13 +13,13 @@ export default function Footer() {
 									{/* Image placed to the left of the site name. Put your file at /public/images/logo.png */}
 									<Image
 										src="/logo.png"
-										alt="EduLedger Logo"
+										alt="EduVault Logo"
 										width={40}
 										height={40}
 										className="rounded-full object-cover"
 									/>
 									<div className="text-lg font-bold tracking-tight text-white">
-										EduLedger
+										EduVault
 									</div>
 								</div>
 
@@ -31,7 +31,7 @@ export default function Footer() {
 							placeholder="Subscribe to our newsletter..."
 							className="bg-transparent px-4 py-2 text-sm text-gray-300 w-full focus:outline-none"
 						/>
-						<button className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2 transition-all">
+						<button className="bg-primary hover:bg-primary-hover text-white text-sm font-semibold px-5 py-2 transition-all">
 							Subscribe
 						</button>
 					</div>
@@ -87,7 +87,7 @@ export default function Footer() {
 						</Link>
 					</div>
 					<p className="text-xs text-gray-500 md:ml-6">
-						© {new Date().getFullYear()} EduLedger All Rights Reserved.
+						© {new Date().getFullYear()} EduVault All Rights Reserved.
 					</p>
 				</div>
 			</div>

@@ -75,7 +75,7 @@ export default function TopSharedMaterials() {
 						Top Shared Study Materials
 					</h2>
 					<p className="text-gray-600 text-sm">
-						Discover what’s trending in the EduLedger community this week.
+						Discover what’s trending in the EduVault community this week.
 					</p>
 				</div>
 				<a href="/marketplace">

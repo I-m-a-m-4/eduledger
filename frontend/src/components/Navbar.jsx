@@ -48,13 +48,13 @@ export default function Navbar() {
 					{/* Image placed to the left of the site name. Put your file at /public/images/logo.png */}
 					<Image
 						src="/logo.png"
-						alt="EduLedger Logo"
+						alt="EduVault Logo"
 						width={40}
 						height={40}
 						className="rounded-full object-cover"
 					/>
 					<div className="text-lg font-bold tracking-tight text-gray-900">
-						EduLedger
+						EduVault
 					</div>
 				</div>
 

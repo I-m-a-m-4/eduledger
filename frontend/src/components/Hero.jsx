@@ -48,7 +48,7 @@ export default function Hero() {
 					variants={fadeUp}
 					className="flex items-center gap-2 bg-white border border-gray-200 px-3 py-1 rounded-full text-xs mb-4 shadow-sm text-black"
 				>
-					✨ Introducing <span className="font-semibold">EduLedger</span>
+					✨ Introducing <span className="font-semibold">EduVault</span>
 				</motion.div>
 
 				{/* Headline */}
