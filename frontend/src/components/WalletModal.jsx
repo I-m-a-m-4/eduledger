@@ -223,7 +223,7 @@ export default function WalletModal({ isOpen, onClose }) {
 
               <button
                 onClick={handleNext}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-semibold transition-all"
+                className="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded-full font-semibold transition-all"
               >
                 Choose Your First Wallet →
               </button>
@@ -305,7 +305,7 @@ export default function WalletModal({ isOpen, onClose }) {
                           )}
                         </div>
                         {isCurrentlyConnecting ? (
-                          <div className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                          <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
                         ) : (
                           <span className="text-gray-400 text-lg">→</span>
                         )}
@@ -345,8 +345,8 @@ export default function WalletModal({ isOpen, onClose }) {
               </p>
 
               {isConnected && address && (
-                <div className="mb-4 p-2 bg-blue-50 border border-blue-200 rounded-lg">
-                  <p className="text-xs text-blue-700">
+                <div className="mb-4 p-2 bg-primary-light/30 border border-primary-light rounded-lg">
+                  <p className="text-xs text-primary">
                     ✓ Wallet: <span className="font-mono font-semibold">{formatAddress(address)}</span>
                   </p>
                 </div>
@@ -359,7 +359,7 @@ export default function WalletModal({ isOpen, onClose }) {
                   </p>
                   <button
                     onClick={() => setStep(2)}
-                    className="mt-2 text-xs text-blue-600 hover:text-blue-700 underline font-medium"
+                    className="mt-2 text-xs text-primary underline font-medium"
                   >
                     Go back to connect wallet
                   </button>
@@ -375,7 +375,7 @@ export default function WalletModal({ isOpen, onClose }) {
                     setFormData({ ...formData, fullName: e.target.value })
                   }
                   required
-                  className="w-full text-[#98A2B3] border border-gray-200 rounded-lg py-2.5 px-3 text-sm focus:outline-none focus:border-blue-500"
+                  className="w-full text-[#98A2B3] border border-gray-200 rounded-lg py-2.5 px-3 text-sm focus:outline-none focus:border-primary"
                 />
                 {errors.fullName && (
                   <p className="text-red-500 text-xs">{errors.fullName}</p>
@@ -388,7 +388,7 @@ export default function WalletModal({ isOpen, onClose }) {
                     setFormData({ ...formData, email: e.target.value })
                   }
                   required
-                  className="w-full text-[#98A2B3] border border-gray-200 rounded-lg py-2.5 px-3 text-sm focus:outline-none focus:border-blue-500"
+                  className="w-full text-[#98A2B3] border border-gray-200 rounded-lg py-2.5 px-3 text-sm focus:outline-none focus:border-primary"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-xs">{errors.email}</p>
@@ -400,7 +400,7 @@ export default function WalletModal({ isOpen, onClose }) {
                   onChange={(e) =>
                     setFormData({ ...formData, institution: e.target.value })
                   }
-                  className="w-full text-[#98A2B3] border border-gray-200 rounded-lg py-2.5 px-3 text-sm focus:outline-none focus:border-blue-500"
+                  className="w-full text-[#98A2B3] border border-gray-200 rounded-lg py-2.5 px-3 text-sm focus:outline-none focus:border-primary"
                 />
                 <input
                   type="text"
@@ -409,7 +409,7 @@ export default function WalletModal({ isOpen, onClose }) {
                   onChange={(e) =>
                     setFormData({ ...formData, country: e.target.value })
                   }
-                  className="w-full text-[#98A2B3] border border-gray-200 rounded-lg py-2.5 px-3 text-sm focus:outline-none focus:border-blue-500"
+                  className="w-full text-[#98A2B3] border border-gray-200 rounded-lg py-2.5 px-3 text-sm focus:outline-none focus:border-primary"
                 />
                 <textarea
                   placeholder="Short Bio"
@@ -417,7 +417,7 @@ export default function WalletModal({ isOpen, onClose }) {
                   onChange={(e) =>
                     setFormData({ ...formData, bio: e.target.value })
                   }
-                  className="w-full text-[#98A2B3] border border-gray-200 rounded-lg py-2.5 px-3 text-sm focus:outline-none focus:border-blue-500"
+                  className="w-full text-[#98A2B3] border border-gray-200 rounded-lg py-2.5 px-3 text-sm focus:outline-none focus:border-primary"
                   rows={3}
                 />
                 {errors.bio && (
@@ -431,7 +431,7 @@ export default function WalletModal({ isOpen, onClose }) {
                 <button
                   type="submit"
                   disabled={submitting || !isConnected}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-full transition-all disabled:opacity-60"
+                  className="w-full bg-primary hover:bg-primary-hover text-white font-semibold py-3 rounded-full transition-all disabled:opacity-60"
                 >
                   {submitting
                     ? "Creating..."
@@ -450,12 +450,12 @@ export default function WalletModal({ isOpen, onClose }) {
               <div className="flex items-start gap-2 mt-4">
                 <input type="checkbox" className="mt-1" />
                 <p className="text-xs text-gray-500">
-                  By continuing, you agree to EduLedger’s {" "}
-                  <span className="text-blue-500 underline cursor-pointer">
+                  By continuing, you agree to EduVault’s {" "}
+                  <span className="text-primary underline cursor-pointer">
                     Terms
                   </span>{" "}
                   and {" "}
-                  <span className="text-blue-500 underline cursor-pointer">
+                  <span className="text-primary underline cursor-pointer">
                     Privacy Policy
                   </span>
                   .

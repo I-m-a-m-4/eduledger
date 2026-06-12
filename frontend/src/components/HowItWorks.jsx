@@ -9,7 +9,7 @@ export default function HowItWorks() {
 			color: "from-blue-500 to-indigo-500",
 			title: "Sign up & Connect Wallet",
 			description:
-				"Create your free student profile and link your crypto wallet — your secure ID on EduLedger",
+				"Create your free student profile and link your crypto wallet — your secure ID on EduVault",
 			delay: 0.2,
 		},
 		{
@@ -99,7 +99,7 @@ export default function HowItWorks() {
 				initial={{ opacity: 0, width: 0 }}
 				whileInView={{ opacity: 1, width: "100%" }}
 				transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
-				className="absolute bottom-0 left-0 h-[1px] bg-gradient-to-r from-blue-500 via-yellow-400 to-green-500 opacity-40"
+				className="absolute bottom-0 left-0 h-[1px] bg-gradient-to-r from-primary via-yellow-400 to-green-500 opacity-40"
 			/>
 		</section>
 	);

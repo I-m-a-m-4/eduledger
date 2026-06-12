@@ -7,7 +7,7 @@ import { FiPlus, FiMinus } from "react-icons/fi";
 export default function FaqSection() {
 	const faqs = [
 		{
-			question: "How do I earn rewards on EduLedger?",
+			question: "How do I earn rewards on EduVault?",
 			answer: "You upload high-quality study documents, summaries, or reports, and mint them as NFTs. You set a download fee. Whenever another student pays the fee to download your document, the smart contract automatically routes the payment directly to your connected Web3 wallet.",
 		},
 		{
@@ -16,7 +16,7 @@ export default function FaqSection() {
 		},
 		{
 			question: "What format of documents can I upload?",
-			answer: "EduLedger supports standard PDF documents. Make sure your upload is readable, accurate, and provides real value to other students. Low-quality or plagiarized materials can be flagged and hidden from the marketplace.",
+			answer: "EduVault supports standard PDF documents. Make sure your upload is readable, accurate, and provides real value to other students. Low-quality or plagiarized materials can be flagged and hidden from the marketplace.",
 		},
 		{
 			question: "Is there any cost to deploy or download?",
