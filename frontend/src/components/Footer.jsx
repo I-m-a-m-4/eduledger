@@ -11,13 +11,9 @@ export default function Footer() {
 				{/* Left Section - Brand Name */}
 				<div className="flex items-center gap-3">
 									{/* Image placed to the left of the site name. Put your file at /public/images/logo.png */}
-									<Image
-										src="/logo.png"
-										alt="EduVault Logo"
-										width={40}
-										height={40}
-										className="rounded-full object-cover"
-									/>
+									<div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center text-white font-extrabold text-lg shadow-md select-none">
+										EV
+									</div>
 									<div className="text-lg font-bold tracking-tight text-white">
 										EduVault
 									</div>
