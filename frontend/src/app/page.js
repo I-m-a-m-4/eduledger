@@ -6,7 +6,6 @@ import FeaturesGrid from "@/components/FeaturesGrid";
 import HowItWorks from "@/components/HowItWorks";
 import DiscoverMaterials from "@/components/DiscoverMaterials";
 import FaqSection from "@/components/FaqSection";
-import CommunityCta from "@/components/CommunityCta";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
       <HowItWorks />
       <DiscoverMaterials />
       <FaqSection />
-      <CommunityCta />
       <Footer />
     </main>
   );
